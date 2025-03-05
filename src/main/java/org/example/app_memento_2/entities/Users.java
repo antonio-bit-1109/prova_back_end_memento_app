@@ -20,7 +20,7 @@ public class Users {
     private boolean isMale;
     @Column(nullable = false, length = 100)
     private String telefono;
-    @Column(nullable = false, length = 16)
+    @Column(nullable = false, length = 16 , unique = true)
     private String cf;
     @Column(nullable = false)
     private LocalDate dataNascita;
@@ -37,11 +37,13 @@ public class Users {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Permessi permessi;
 
-    //@ManyToMany()
     @OneToMany(mappedBy = "user")
     private List<Condivisione_nota> condivisioni;
 
     @OneToMany(mappedBy = "utente")
     private List<Note> listaNote;
+
+    @OneToMany(mappedBy = "utente")
+    private List<Storico_Nota> storicoNote;
 
 }

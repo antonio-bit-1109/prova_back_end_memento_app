@@ -30,9 +30,9 @@ public class Note {
     @OneToMany(mappedBy = "notes")
     private List<Commento> commenti;
 
-    @ManyToOne
-    @JoinColumn(name = "updated_by")
-    private Users UpdatedBy;
+//    @ManyToOne
+//    @JoinColumn(name = "updated_by")
+//    private Users UpdatedBy;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
@@ -44,5 +44,8 @@ public class Note {
     @ManyToOne
     @JoinColumn(name = "utente_id")
     private Users utente;
+
+    @OneToMany(mappedBy = "notaPrincipale")
+    private List<Storico_Nota> storicoNote;
 
 }
