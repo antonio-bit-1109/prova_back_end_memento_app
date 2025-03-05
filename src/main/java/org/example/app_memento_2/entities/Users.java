@@ -41,7 +41,7 @@ public class Users {
     @OneToMany(mappedBy = "user")
     private List<Condivisione_nota> condivisioni;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "utente")
     private List<Note> listaNote;
 
 }
